@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'task_store.dart';
-import 'task_item.dart';
+import 'package:task_test_app/task_store.dart';
+import 'package:task_test_app/task_item.dart';
 
 // タスクリストウィジェット
 class TaskList extends StatelessWidget {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:task_test_app/auto_counter_store.dart';
 
 import 'task_store.dart';
 
@@ -10,8 +11,8 @@ class TaskItem extends StatelessWidget {
   TaskItem(this.index, this.taskName);
   @override
   Widget build(BuildContext context) {
-    return Consumer<TaskStore>(
-        builder: (BuildContext context, TaskStore taskStore, _) {
+    return Consumer2<TaskStore, Clock>(builder: (BuildContext context,
+        TaskStore taskStore, Clock clock, _) {
       return Card(
         color: Colors.blueAccent[100],
         child: new InkWell(
@@ -19,7 +20,7 @@ class TaskItem extends StatelessWidget {
             taskStore.removeTask(index);
           },
           child: Padding(
-            child: Text(taskName),
+            child: Text("$taskName, ${clock.time}"),
             padding: EdgeInsets.all(20.0),
           ),
         ),
